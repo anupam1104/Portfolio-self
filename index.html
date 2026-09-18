@@ -13,6 +13,7 @@
 <body>
 
 <nav class="nav">
+  
   <span class="logo">anupam<span class="accent">.</span></span>
   <div class="nav-links">
     <a href="#work">work</a>
@@ -29,7 +30,9 @@
     </p>
     <h1 class="hero-title">Anupam<br><span class="accent">Mishra</span></h1>
     <div class="hero-identity">
-      <img src="headshot.webp" alt="Anupam Mishra" class="hero-avatar" width="72" height="72">
+      <div class="hero-portrait-wrap">
+        <img src="myself-1.jpeg" alt="Anupam Mishra" class="hero-avatar" width="84" height="84">
+      </div>
       <p class="hero-sub">Backend developer &amp; AI integration engineer. Building systems that verify, score, and reason.</p>
     </div>
     <div class="hero-tags">
@@ -141,6 +144,35 @@
       </div>
     </a>
 
+  </div>
+</section>
+
+<section class="section" id="teams">
+  <p class="eyebrow">collaborations</p>
+  <h2 class="section-title">People I’ve worked with</h2>
+
+  <div class="team-grid reveal">
+    <article class="team-card" data-image="radians_og-1.jpeg" data-title="RADIANS">
+      <span class="team-name">RADIANS</span>
+      <p>Anupam Mishra, Baidantik Das, Deblina Dutta, Riya Bharti</p>
+    </article>
+    <article class="team-card" data-image="" data-title="ERROR: 401">
+      <span class="team-name">ERROR: 401</span>
+      <p>Anushree Sarkar, Anupam Mishra</p>
+    </article>
+    <article class="team-card" data-image="sih-radians-3.jpeg" data-title="Shram Setu">
+      <span class="team-name">Shram Setu</span>
+      <p>Anupam Mishra, Baidantik Das, Deblina Dutta, Riya Bharti, Swastika Ghosh, Binay Bhusan Routray,</p>
+      <p>MENTOR-SOMENATH NAG CHUDHURY</p>
+    </article>
+    <article class="team-card" data-image="hackathon-team.webp" data-title="Tech Tribe">
+      <span class="team-name">Tech Tribe</span>
+      <p>Anupam Mishra, Baidantik Das, Subhrajit Singha</p>
+    </article>
+    <article class="team-card" data-image="tech_vibers-1.jpeg" data-title="Tech Vibers">
+      <span class="team-name">Tech Vibers</span>
+      <p>Anupam Mishra, Trithankar Das</p>
+    </article>
   </div>
 </section>
 
@@ -282,6 +314,15 @@
   <p class="footer-note">© 2026 Anupam Mishra. </p>
   <p class="footer-note">All information are accurate. All creative ideas are reserved to the maker.</p>
 </footer>
+
+<div class="image-modal" id="imageModal" aria-hidden="true">
+  <div class="image-modal-backdrop" data-close="true"></div>
+  <div class="image-modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="image-modal-close" type="button" aria-label="Close image">×</button>
+    <img id="modalImage" src="" alt="">
+    <p id="modalTitle">Team photo</p>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>

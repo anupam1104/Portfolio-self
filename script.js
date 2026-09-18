@@ -65,3 +65,41 @@ tiltCards.forEach((card) => {
     card.style.transform = '';
   });
 });
+
+const modal = document.getElementById('imageModal');
+const modalImage = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const closeButton = document.querySelector('.image-modal-close');
+const teamCards = document.querySelectorAll('.team-card');
+
+function openTeamImage(imageName, title) {
+  modalImage.src = imageName;
+  modalImage.alt = title;
+  modalTitle.textContent = title;
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeTeamImage() {
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+teamCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    openTeamImage(card.dataset.image, card.dataset.title);
+  });
+});
+
+closeButton.addEventListener('click', closeTeamImage);
+modal.addEventListener('click', (event) => {
+  if (event.target.dataset.close === 'true' || event.target === modal) {
+    closeTeamImage();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+    closeTeamImage();
+  }
+});

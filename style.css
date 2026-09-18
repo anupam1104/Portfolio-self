@@ -201,6 +201,109 @@ body::before {
   color: var(--muted);
 }
 
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.team-card {
+  background: linear-gradient(180deg, rgba(27,31,36,0.98), rgba(20,23,27,0.94));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.4rem 1.25rem;
+  box-shadow: 0 20px 30px rgba(0,0,0,0.12);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.team-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 38px rgba(124, 92, 252, 0.12);
+}
+
+.team-card .team-name {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.team-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 2rem;
+}
+
+.image-modal.is-open {
+  display: flex;
+}
+
+.image-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 9, 12, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.image-modal-content {
+  position: relative;
+  width: min(84vw, 980px);
+  max-height: 85vh;
+  background: rgba(11, 13, 16, 0.92);
+  border: 1px solid rgba(124, 92, 252, 0.35);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.image-modal-content img {
+  display: block;
+  width: 100%;
+  max-height: 75vh;
+  object-fit: cover;
+  background: var(--surface);
+}
+
+.image-modal-content p {
+  padding: 0.9rem 1rem 1.2rem;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid rgba(124, 92, 252, 0.35);
+  border-radius: 50%;
+  background: rgba(11, 13, 16, 0.7);
+  color: var(--text);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
 .terminal-line {
   font-family: var(--font-mono);
   font-size: 0.95rem;
@@ -234,16 +337,46 @@ body::before {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.75rem;
+  padding: 0.7rem 0.9rem 0.7rem 0.7rem;
+  border: 1px solid rgba(124, 92, 252, 0.18);
+  border-radius: 18px;
+  background: rgba(20, 23, 27, 0.55);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
   animation: floatCard 5s ease-in-out infinite;
 }
 
+.hero-portrait-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(124, 92, 252, 0.26), rgba(255,255,255,0.04));
+  box-shadow: 0 0 0 1px rgba(124, 92, 252, 0.28), 0 18px 30px rgba(124, 92, 252, 0.18);
+  flex-shrink: 0;
+}
+
+.hero-portrait-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2), transparent 35%, rgba(255,255,255,0.02));
+  pointer-events: none;
+}
+
 .hero-avatar {
-  width: 56px;
-  height: 56px;
+  width: 74px;
+  height: 74px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--accent);
+  border: 2px solid rgba(255,255,255,0.35);
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-sub {
