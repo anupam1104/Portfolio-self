@@ -27,6 +27,102 @@ body {
   overflow-x: hidden;
 }
 
+body.preloader-active {
+  overflow: hidden;
+}
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 13, 16, 0.96);
+  backdrop-filter: blur(10px);
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-core {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.preloader-logo-wrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), rgba(124, 92, 252, 0.14) 36%, rgba(11,13,16,0.5) 75%);
+  border: 1px solid rgba(124, 92, 252, 0.38);
+  box-shadow: 0 0 30px rgba(124, 92, 252, 0.18);
+  overflow: hidden;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.preloader-logo {
+  position: relative;
+  z-index: 1;
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 22px rgba(124, 92, 252, 0.45));
+}
+
+.preloader-random-layer {
+  position: relative;
+  width: min(62vw, 650px);
+  height: 70px;
+}
+
+.preloader-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  font-family: var(--font-mono);
+  font-size: clamp(0.55rem, 1vw, 0.8rem);
+  letter-spacing: 0.18em;
+  color: rgba(237, 238, 240, 0.75);
+  text-transform: lowercase;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease, left 0.8s ease, top 0.8s ease, filter 0.8s ease;
+  filter: blur(4px);
+  white-space: nowrap;
+}
+
+.preloader-line.active {
+  opacity: 1;
+  filter: blur(0);
+  left: 50%;
+  top: 50%;
+}
+
+.preloader-line:nth-child(1) { left: 12%; top: 45%; }
+.preloader-line:nth-child(2) { left: 52%; top: 68%; }
+.preloader-line:nth-child(3) { left: 76%; top: 33%; }
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
 body::before {
   content: '';
   position: fixed;
